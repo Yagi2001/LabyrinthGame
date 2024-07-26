@@ -7,13 +7,12 @@ public class MazeGenerator : MonoBehaviour
 {
     [SerializeField]
     private MazeCell _mazeCellPrefab;
-
     [SerializeField]
     private int _mazeWidth;
-
     [SerializeField]
     private int _mazeDepth;
-
+    [SerializeField]
+    private GameObject _mazeTotal;
     private MazeCell[,] _mazeGrid;
 
     void Start()
@@ -24,7 +23,7 @@ public class MazeGenerator : MonoBehaviour
         {
             for (int z = 0; z < _mazeDepth; z++)
             {
-                _mazeGrid[x, z] = Instantiate( _mazeCellPrefab, new Vector3( x, 0, z ), Quaternion.identity );
+                _mazeGrid[x, z] = Instantiate( _mazeCellPrefab, new Vector3( x, 0, z ), Quaternion.identity, _mazeTotal.transform );
             }
         }
 
